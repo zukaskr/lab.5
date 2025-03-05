@@ -1,0 +1,58 @@
+#1
+import re
+def z(string):
+    pattern = r'^a*b*'
+    return bool(re.fullmatch(pattern,string))
+
+print(z("abb"))
+
+#2
+import re
+def z(string):
+    pattern = r'^ab{2,3}$'
+    return bool(re.fullmatch(pattern,string))
+print(zz("abba"))
+
+#3
+import re
+def find_lowercase_with_underscore(s):
+    return re.findall(r'\b[a-z]+_[a-z]+\b', s)
+print(find_lowercase_with_underscore("hello_world test_case"))
+
+#4
+import re
+def find_capital_followed_by_lower(s):
+    return re.findall(r'[A-Z][a-z]+', s)
+print(find_capital_followed_by_lower("Hello World Test"))
+
+#5
+import re
+def match_a_any_b(s):
+    return re.fullmatch(r'a.*b', s) is not None
+print(match_a_any_b("axb"))  # True
+print(match_a_any_b("abc"))  # False
+
+#6
+import re
+
+def replace_special_chars(s):
+    return re.sub(r'[ ,.]', ':', s)
+print(replace_special_chars("Hello, world. How are you?"))
+
+#7
+import re
+def snake_to_camel(s):
+    return ''.join(word.capitalize() for word in s.split('_'))
+print(snake_to_camel("hello_world")) 
+
+#8
+import re
+def split_at_uppercase(s):
+    return re.split(r'(?=[A-Z])', s)
+print(split_at_uppercase("HelloWorldTest"))
+
+#9
+import re
+def insert_spaces_before_capitals(s):
+    return re.sub(r'(?<!^)(?=[A-Z])', ' ', s)
+print(insert_spaces_before_capitals("HelloWorldTest"))  
